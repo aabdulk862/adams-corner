@@ -4,18 +4,18 @@ import Container from "@mui/material/Container";
 import MediaCard from "./MediaCard";
 import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
-
   useEffect(() => {
-    fetch("http://localhost:5000/menuItems")
+    fetch(`${process.env.REACT_APP_API_URL}/menuItems`)
       .then((response) => response.json())
       .then((data) => setMenuItems(data))
       .catch((error) => console.log(error));
   }, [menuItems]);
 
   const handleDelete = (itemId) => {
-    fetch(`http://localhost:5000/menuItems/${itemId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/menuItems/${itemId}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -27,7 +27,7 @@ const Menu = () => {
   };
 
   const handleUpdate = (itemId, updatedItem) => {
-    fetch(`http://localhost:5000/menuItems/${itemId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/menuItems/${itemId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Menu = () => {
 
   const handleReset = () => {
     // Trigger the reset by making a POST request to /reset
-    fetch("http://localhost:5000/menuItems/reset", {
+    fetch(`${process.env.REACT_APP_API_URL}/menuItems/reset`, {
       method: "POST",
     })
       .then((response) => response.json())
