@@ -45,6 +45,19 @@ const Menu = () => {
       .catch((error) => console.log(error));
   };
 
+  const handleReset = () => {
+    // Trigger the reset by making a POST request to /reset
+    fetch("http://localhost:5000/menuItems/reset", {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Update state with reset menu items
+        setMenuItems(data);
+      })
+      .catch((error) => console.log(error));
+  };
+
   const appetizers = menuItems.filter((item) => item.category === "Appetizer");
   const entrees = menuItems.filter((item) => item.category === "Entree");
   const desserts = menuItems.filter((item) => item.category === "Dessert");
@@ -67,15 +80,31 @@ const Menu = () => {
             size="large"
             sx={{
               fontSize: "1rem",
-              bgcolor: "#F30A49",
+              bgcolor: "#4CAF50",
               "&:hover": {
-                bgcolor: "#FA99B3",
+                bgcolor: "#45a049",
               },
+              margin: ".5rem"
             }}
             component={Link}
             to="/add"
           >
             Add Menu Item
+          </Button>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              fontSize: "1rem",
+              bgcolor: "#F30A49",
+              "&:hover": {
+                bgcolor: "#FA99B3",
+              },
+              margin: ".5rem"
+            }}
+            onClick={handleReset}
+          >
+            Reset Menu Items
           </Button>
         </Box>
         <Typography
@@ -193,7 +222,7 @@ const Menu = () => {
         <Box
           sx={{
             display: "flex",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
             justifyContent: "center",
             gap: "1rem",
           }}
