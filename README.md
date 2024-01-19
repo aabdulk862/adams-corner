@@ -1,6 +1,6 @@
 # Adam's Corner
 
-Adam's Corner is a restaurant management system built with React and Express.
+Adam's Corner is a restaurant management system built with React and Node.js.
 
 ## Features
 
