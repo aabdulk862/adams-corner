@@ -64,7 +64,7 @@ const Menu = () => {
   const beverages = menuItems.filter((item) => item.category === "Beverage");
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{paddingBottom: "7rem"}}>
       <Box
         sx={{
           display: "flex",

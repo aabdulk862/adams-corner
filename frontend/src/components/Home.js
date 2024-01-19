@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{paddingBottom: "7rem"}}>
       <Typography
         variant="h1"
         sx={{
