@@ -24,6 +24,8 @@ code {
   margin-right: auto;
   width: 40%;
   padding: 1rem;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 1000px) {

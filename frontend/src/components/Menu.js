@@ -19,7 +19,9 @@ const Menu = () => {
 
   const fetchMenuItems = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/menuItems`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/menuItems`
+      );
       const data = await response.json();
       setMenuItems(data);
     } catch (error) {
@@ -83,7 +85,7 @@ const Menu = () => {
   const beverages = menuItems.filter((item) => item.category === "Beverage");
 
   return (
-    <Container maxWidth="xl" sx={{paddingBottom: "7rem"}}>
+    <Container maxWidth="xl" sx={{ paddingBottom: "7rem" }}>
       <Box
         sx={{
           display: "flex",
@@ -93,7 +95,14 @@ const Menu = () => {
           paddingBottom: "3rem",
         }}
       >
-        <Box sx={{ paddingTop: "1rem" }}>
+        <Box
+          sx={{
+            paddingTop: "1rem",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           <Button
             variant="contained"
             size="large"
@@ -103,7 +112,8 @@ const Menu = () => {
               "&:hover": {
                 bgcolor: "#45a049",
               },
-              margin: ".5rem"
+              margin: ".5rem",
+              width: "70%",
             }}
             component={Link}
             to="/add"
@@ -119,7 +129,8 @@ const Menu = () => {
               "&:hover": {
                 bgcolor: "#FA99B3",
               },
-              margin: ".5rem"
+              margin: ".5rem",
+              width: "70%",
             }}
             onClick={handleReset}
           >
@@ -241,7 +252,7 @@ const Menu = () => {
         <Box
           sx={{
             display: "flex",
-            flexWrap: "nowrap",
+            flexWrap: "wrap",
             justifyContent: "center",
             gap: "1rem",
           }}
