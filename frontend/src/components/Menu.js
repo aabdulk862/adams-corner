@@ -86,7 +86,8 @@ const Menu = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            height: "100vh",
+            padding: '5rem'
+            // height: "100vh",
           }}
           aria-describedby="loading-region"
           aria-busy={loading}
