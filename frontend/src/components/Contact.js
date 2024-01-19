@@ -19,7 +19,7 @@ const Contact = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{paddingBottom: "2rem"}}>
+    <Container maxWidth="md" sx={{paddingBottom: "7rem"}}>
       <Box sx={{ textAlign: "center" }}>
         <Typography
           variant="h1"

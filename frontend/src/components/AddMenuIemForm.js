@@ -8,6 +8,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Container,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -48,7 +49,10 @@ const AddMenuItemForm = () => {
   };
 
   return (
-    <>
+    <Container
+      maxWidth="xl"
+      sx={{ textAlign: "center", paddingBottom: "7rem" }}
+    >
       <Box
         component="form"
         sx={{
@@ -145,7 +149,7 @@ const AddMenuItemForm = () => {
           Cancel
         </Button>
       </Box>
-    </>
+    </Container>
   );
 };
 

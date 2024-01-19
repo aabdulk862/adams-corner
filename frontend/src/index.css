@@ -20,16 +20,16 @@ code {
 
 #lobbyImage {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-  padding: 1rem;
-  border-radius: 8px;
+  margin: auto;
+  width: 70%; /* Stretch horizontally to fill the container */
+  max-width: 100%; /* Ensure the image doesn't exceed its natural size */
   object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
 }
 
 @media only screen and (max-width: 1000px) {
   #lobbyImage {
-    width: 80%;
+    width: 90%;
   }
 }
