@@ -6,13 +6,30 @@ import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
+  // const [menuItems, setMenuItems] = useState([]);
+
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_API_URL}/menuItems`)
+  //     .then((response) => response.json())
+  //     .then((data) => setMenuItems(data))
+  //     .catch((error) => console.log(error));
+  // }, [menuItems]);
+
   const [menuItems, setMenuItems] = useState([]);
+
+  const fetchMenuItems = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/menuItems`);
+      const data = await response.json();
+      setMenuItems(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/menuItems`)
-      .then((response) => response.json())
-      .then((data) => setMenuItems(data))
-      .catch((error) => console.log(error));
-  }, [menuItems]);
+    fetchMenuItems(); // Fetch menu items on component mount
+  }, []); // Empty dependency array ensures the effect runs only once
 
   const handleDelete = (itemId) => {
     fetch(`${process.env.REACT_APP_API_URL}/menuItems/${itemId}`, {
@@ -22,6 +39,7 @@ const Menu = () => {
       .then((data) => {
         const updatedMenuItems = menuItems.filter((item) => item.id !== itemId);
         setMenuItems(updatedMenuItems);
+        fetchMenuItems();
       })
       .catch((error) => console.log(error));
   };
@@ -41,6 +59,7 @@ const Menu = () => {
           item.id === data.id ? data : item
         );
         setMenuItems(updatedMenuItems);
+        fetchMenuItems();
       })
       .catch((error) => console.log(error));
   };
